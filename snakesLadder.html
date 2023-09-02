@@ -232,7 +232,7 @@
             rollingMusic.play()
             let myInterval=setInterval(function(){
                 let temp=Math.ceil(Math.random()*6)
-               document.getElementById('dice').setAttribute('src',`${temp}.png`)
+               document.getElementById('dice').setAttribute('src',`imgs/${temp}.png`)
             },200)
             setTimeout(function(){
                 clearInterval(myInterval)
@@ -246,7 +246,7 @@
             if(playerFlag=='player1'){
                 let diceValue=Math.ceil(Math.random()*6)
                 console.log('dice:'+diceValue)
-                document.getElementById('dice').setAttribute('src',`${diceValue}.png`)
+                document.getElementById('dice').setAttribute('src',`imgs/${diceValue}.png`)
                 if (counter1+diceValue > 100){
                     playerFlag='player2'
                 }
@@ -274,7 +274,7 @@
             else{
                 let diceValue=Math.ceil(Math.random()*6)
                 console.log('dice:'+diceValue)
-                document.getElementById('dice').setAttribute('src',`${diceValue}.png`)
+                document.getElementById('dice').setAttribute('src',`imgs/${diceValue}.png`)
                 if (counter2+diceValue > 100){
                     playerFlag='player1'
                 }
