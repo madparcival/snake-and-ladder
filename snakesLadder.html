@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snakes and Ladders</title>
+    <style>
+        body{
+            margin: 0;
+            background-image: linear-gradient(90deg,#787aff,#3effc2);
+        }
+        h1{
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        .container .board{
+            display: grid;
+            grid-template-columns: repeat(10,59px);
+            grid-template-rows: repeat(10,59px);
+            gap: 2px;
+            width: fit-content;
+            padding: 2px;
+            background-color: black;
+            background-image: url('board.jpg');
+        }
+        /* .container .board *{
+        } */
+        .container .details{
+            margin: 10px;
+            text-align: center;
+
+        }
+        .setup{
+            margin-left:40px ;
+        }
+        .setup *{
+            display: flex;
+            padding: 10px;
+
+        }
+
+        .btn{
+            background-color: yellow;
+            color: black;
+            border: 2px solid black;
+            padding: 10px;
+        }
+        .hide{
+            display: none !important;
+        }
+        .winner{
+            /* background-image: linear-gradient(90deg,#FFC7EA,#CAEDFF); */
+            text-align: center;
+            padding: 20px;
+        }
+        .board i{
+            font-size: 25px;
+        }
+
+        .btn:hover{
+            background-color: #191825;
+            color: #F8DE22;
+        }
+        @media (max-width:1000px) {
+            .container{
+                display: block;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Welcome to the Snakes & Ladders game</h1>
+    <div class="setup">
+        Player1 Name:<input id="player1Name" type="text" required><br>
+        Player1 Color:<input id="player1Color" type="color"><br>
+        Player2 Name:<input id="player2Name" type="text" required><br>
+        Player2 Color:<input id="player2Color" type="color"><br>
+        <input type="submit" class="btn" onclick="setInfo()" value="Start the game">
+    </div>
+    <div class="container hide">
+       <div class="board">
+        <div class="tile100"></div>
+        <div class="tile99"></div>
+        <div class="tile98"></div>
+        <div class="tile97"></div>
+        <div class="tile96"></div>
+        <div class="tile95"></div>
+        <div class="tile94"></div>
+        <div class="tile93"></div>
+        <div class="tile92"></div>
+        <div class="tile91"></div>
+        <div class="tile81"></div>
+        <div class="tile82"></div>
+        <div class="tile83"></div>
+        <div class="tile84"></div>
+        <div class="tile85"></div>
+        <div class="tile86"></div>
+        <div class="tile87"></div>
+        <div class="tile88"></div>
+        <div class="tile89"></div>
+        <div class="tile90"></div>
+        <div class="tile80"></div>
+        <div class="tile79"></div>
+        <div class="tile78"></div>
+        <div class="tile77"></div>
+        <div class="tile76"></div>
+        <div class="tile75"></div>
+        <div class="tile74"></div>
+        <div class="tile73"></div>
+        <div class="tile72"></div>
+        <div class="tile71"></div>
+        <div class="tile61"></div>
+        <div class="tile62"></div>
+        <div class="tile63"></div>
+        <div class="tile64"></div>
+        <div class="tile65"></div>
+        <div class="tile66"></div>
+        <div class="tile67"></div>
+        <div class="tile68"></div>
+        <div class="tile69"></div>
+        <div class="tile70"></div>
+        <div class="tile60"></div>
+        <div class="tile59"></div>
+        <div class="tile58"></div>
+        <div class="tile57"></div>
+        <div class="tile56"></div>
+        <div class="tile55"></div>
+        <div class="tile54"></div>
+        <div class="tile53"></div>
+        <div class="tile52"></div>
+        <div class="tile51"></div>
+        <div class="tile41"></div>
+        <div class="tile42"></div>
+        <div class="tile43"></div>
+        <div class="tile44"></div>
+        <div class="tile45"></div>
+        <div class="tile46"></div>
+        <div class="tile47"></div>
+        <div class="tile48"></div>
+        <div class="tile49"></div>
+        <div class="tile50"></div>
+        <div class="tile40"></div>
+        <div class="tile39"></div>
+        <div class="tile38"></div>
+        <div class="tile37"></div>
+        <div class="tile36"></div>
+        <div class="tile35"></div>
+        <div class="tile34"></div>
+        <div class="tile33"></div>
+        <div class="tile32"></div>
+        <div class="tile31"></div>
+        <div class="tile21"></div>
+        <div class="tile22"></div>
+        <div class="tile23"></div>
+        <div class="tile24"></div>
+        <div class="tile25"></div>
+        <div class="tile26"></div>
+        <div class="tile27"></div>
+        <div class="tile28"></div>
+        <div class="tile29"></div>
+        <div class="tile30"></div>
+        <div class="tile20"></div>
+        <div class="tile19"></div>
+        <div class="tile18"></div>
+        <div class="tile17"></div>
+        <div class="tile16"></div>
+        <div class="tile15"></div>
+        <div class="tile14"></div>
+        <div class="tile13"></div>
+        <div class="tile12"></div>
+        <div class="tile11"></div>
+        <div class="tile1"></div>
+        <div class="tile2"></div>
+        <div class="tile3"></div>
+        <div class="tile4"></div>
+        <div class="tile5"></div>
+        <div class="tile6"></div>
+        <div class="tile7"></div>
+        <div class="tile8"></div>
+        <div class="tile9"></div>
+        <div class="tile10"></i></div>
+    </div>
+    <div class="details">
+        <img src="/snakesAndLadder/dice-fire.png" id="dice" width="200px" alt="" srcset="">
+        <h2></h2>
+        <h2></h2>
+        <h3 id="turn"></h3>
+        <button class="btn" type="button" onclick="roll()">roll</button>
+    </div>
+    </div>
+    <div class="winner hide">
+        <img src="https://i.gifer.com/6ob.gif" alt="">
+        <h2 id="winnerResult"></h2>
+    </div>
+<!-- script -->
+    <script>
+        let player1={   'name':'player1',
+                        'color':'',
+                        'moves':[]
+                    }
+        let player2={   'name':'player1',
+                        'color':'',
+                        'moves':[]}
+
+        let snakes={27:12,40:37,43:25,54:23,66:21,76:18,89:36,99:58}
+        let ladders={4:21,13:33,33:16,42:21,50:19,62:19,74:18}
+        let counter1=1
+        let counter2=1
+        let playerFlag='player1'
+        
+        function setInfo(){
+            if(document.getElementById('player1Name').value && document.getElementById('player2Name').value){
+                player1.name=document.getElementById('player1Name').value
+                player2.name=document.getElementById('player2Name').value
+            }
+            player1.color=document.getElementById('player1Color').value
+            player2.color=document.getElementById('player2Color').value
+            document.getElementsByClassName('container')[0].classList.toggle('hide')
+            document.getElementsByClassName('setup')[0].classList.toggle('hide')
+            document.getElementsByTagName('h2')[0].innerHTML=`player1=${player1.name} <i class="fa-solid fa-user" style="color: ${player1.color};">`
+            document.getElementsByTagName('h2')[1].innerHTML=`player2=${player2.name} <i class="fa-solid fa-user" style="color: ${player2.color};">`         
+        }
+
+        function roll(){
+            console.log(playerFlag)
+            let rollingMusic=new Audio('music/roll.wav')
+            rollingMusic.play()
+            let myInterval=setInterval(function(){
+                let temp=Math.ceil(Math.random()*6)
+               document.getElementById('dice').setAttribute('src',`${temp}.png`)
+            },200)
+            setTimeout(function(){
+                clearInterval(myInterval)
+                rollingMusic.pause()
+            },800)
+            // execution()
+            setTimeout(execution,800)
+        }
+
+        function execution(){
+            if(playerFlag=='player1'){
+                let diceValue=Math.ceil(Math.random()*6)
+                console.log('dice:'+diceValue)
+                document.getElementById('dice').setAttribute('src',`${diceValue}.png`)
+                if (counter1+diceValue > 100){
+                    playerFlag='player2'
+                }
+                else{
+                    document.getElementsByClassName(`tile${counter1}`)[0].innerHTML='0'
+                    counter1+=diceValue
+                    counter1=isSnakeOrLadder(counter1)
+                    player1.moves.push(counter1)
+                    if(player2.position==counter1){
+                        document.getElementsByClassName(`tile${counter2}`)[0].innerHTML=`<i class="fa-solid fa-user" style="color: ${player1.color};"> <i class="fa-solid fa-user" style="color: ${player2.color};">`
+                    }
+                    else{
+                        document.getElementsByClassName(`tile${counter1}`)[0].innerHTML=`<i class="fa-solid fa-user" style="color: ${player1.color};">`
+                    }
+                    playerFlag='player2'
+                    player1['position']=counter1
+                    console.log('location:'+player1.position)
+                    if(diceValue==6){
+                        playerFlag='player1'
+                    }
+                    document.getElementById('turn').innerText=`${playerFlag}'s Turn`
+                }
+                
+            }
+            else{
+                let diceValue=Math.ceil(Math.random()*6)
+                console.log('dice:'+diceValue)
+                document.getElementById('dice').setAttribute('src',`${diceValue}.png`)
+                if (counter2+diceValue > 100){
+                    playerFlag='player1'
+                }
+                else{
+                    document.getElementsByClassName(`tile${counter2}`)[0].innerHTML=''
+                    counter2+=diceValue
+                    counter2=isSnakeOrLadder(counter2)
+                    player2.moves.push(counter2)
+                    if(player1.position==counter2){
+                        document.getElementsByClassName(`tile${counter2}`)[0].innerHTML=`<i class="fa-solid fa-user" style="color: ${player1.color};"> <i class="fa-solid fa-user" style="color: ${player2.color};">`
+                    }
+                    else{
+                        document.getElementsByClassName(`tile${counter2}`)[0].innerHTML=` <i class="fa-solid fa-user" style="color: ${player2.color};">`
+                    }
+                    playerFlag='player1'
+                    player2['position']=counter2
+                    console.log('location:'+player2.position)
+                    if(diceValue==6){
+                        playerFlag='player2'
+                    }
+                    document.getElementById('turn').innerText=`${playerFlag}'s Turn`
+                }
+            }
+            if(player1.position == 100 || player2.position ==100){
+                document.getElementsByClassName('btn')[0].classList.toggle('hide')
+                let winner=''
+                if(player1.position == 100){
+                    winner=player1.name
+                }
+                else{
+                    winner=player2.name
+                }
+                let winnerMusic=new Audio('music/winner.mp3')
+                winnerMusic.play()
+                document.getElementsByClassName('container')[0].classList.toggle('hide')
+                document.getElementsByClassName('winner')[0].classList.toggle('hide')
+                document.getElementById('winnerResult').innerHTML=`${winner} is the winner!!!!!!`
+            }
+        }
+
+        function isSnakeOrLadder(positionValue){
+            if(Object.keys(snakes).includes(String(positionValue))){
+                positionValue=Number(positionValue)-snakes[positionValue]
+                let snakeSound=new Audio('music/snake.wav')
+                snakeSound.play()
+            }
+            else if(Object.keys(ladders).includes(String(positionValue))){
+                positionValue=Number(positionValue)+ladders[positionValue]
+                let ladderSound=new Audio('music/ladder.wav')
+                ladderSound.play()
+            }
+            return positionValue
+        }
+        
+    </script>
+    <script src="https://kit.fontawesome.com/d6f56984f1.js" crossorigin="anonymous"></script>
+</body>
+</html>
