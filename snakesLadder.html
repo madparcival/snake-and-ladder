@@ -14,17 +14,13 @@
         }
         .container{
             display: flex;
-            justify-content: center;
         }
         .container .board{
             display: grid;
-            grid-template-columns: repeat(10,59px);
-            grid-template-rows: repeat(10,59px);
-            gap: 2px;
-            width: fit-content;
-            padding: 2px;
-            background-color: black;
-            background-image: url('board.jpg');
+            grid-template-columns: repeat(10,50px);
+            grid-template-rows: repeat(10,50px);
+            background-size: 500px 500px;
+            background-image: url('/imgs/board.jpg');
         }
         /* .container .board *{
         } */
@@ -56,6 +52,14 @@
             text-align: center;
             padding: 20px;
         }
+        .card{
+            background-color: aliceblue;
+            border-radius: 10px 10px 10px 10px;
+            text-align: center;
+            border: 2px solid white;
+            margin: 2px;
+            list-style: none;
+        }
         .board i{
             font-size: 25px;
         }
@@ -63,6 +67,15 @@
         .btn:hover{
             background-color: #191825;
             color: #F8DE22;
+        }
+        .history{
+            position: absolute;
+            top: 0;
+            width: 350px;
+            right: 10px;
+            padding: 20px;
+            overflow:scroll;
+            height: 90%;
         }
         @media (max-width:1000px) {
             .container{
@@ -83,119 +96,126 @@
         <input type="submit" class="btn" onclick="setInfo()" value="Start the game">
     </div>
     <div class="container hide">
-       <div class="board">
-        <div class="tile100"></div>
-        <div class="tile99"></div>
-        <div class="tile98"></div>
-        <div class="tile97"></div>
-        <div class="tile96"></div>
-        <div class="tile95"></div>
-        <div class="tile94"></div>
-        <div class="tile93"></div>
-        <div class="tile92"></div>
-        <div class="tile91"></div>
-        <div class="tile81"></div>
-        <div class="tile82"></div>
-        <div class="tile83"></div>
-        <div class="tile84"></div>
-        <div class="tile85"></div>
-        <div class="tile86"></div>
-        <div class="tile87"></div>
-        <div class="tile88"></div>
-        <div class="tile89"></div>
-        <div class="tile90"></div>
-        <div class="tile80"></div>
-        <div class="tile79"></div>
-        <div class="tile78"></div>
-        <div class="tile77"></div>
-        <div class="tile76"></div>
-        <div class="tile75"></div>
-        <div class="tile74"></div>
-        <div class="tile73"></div>
-        <div class="tile72"></div>
-        <div class="tile71"></div>
-        <div class="tile61"></div>
-        <div class="tile62"></div>
-        <div class="tile63"></div>
-        <div class="tile64"></div>
-        <div class="tile65"></div>
-        <div class="tile66"></div>
-        <div class="tile67"></div>
-        <div class="tile68"></div>
-        <div class="tile69"></div>
-        <div class="tile70"></div>
-        <div class="tile60"></div>
-        <div class="tile59"></div>
-        <div class="tile58"></div>
-        <div class="tile57"></div>
-        <div class="tile56"></div>
-        <div class="tile55"></div>
-        <div class="tile54"></div>
-        <div class="tile53"></div>
-        <div class="tile52"></div>
-        <div class="tile51"></div>
-        <div class="tile41"></div>
-        <div class="tile42"></div>
-        <div class="tile43"></div>
-        <div class="tile44"></div>
-        <div class="tile45"></div>
-        <div class="tile46"></div>
-        <div class="tile47"></div>
-        <div class="tile48"></div>
-        <div class="tile49"></div>
-        <div class="tile50"></div>
-        <div class="tile40"></div>
-        <div class="tile39"></div>
-        <div class="tile38"></div>
-        <div class="tile37"></div>
-        <div class="tile36"></div>
-        <div class="tile35"></div>
-        <div class="tile34"></div>
-        <div class="tile33"></div>
-        <div class="tile32"></div>
-        <div class="tile31"></div>
-        <div class="tile21"></div>
-        <div class="tile22"></div>
-        <div class="tile23"></div>
-        <div class="tile24"></div>
-        <div class="tile25"></div>
-        <div class="tile26"></div>
-        <div class="tile27"></div>
-        <div class="tile28"></div>
-        <div class="tile29"></div>
-        <div class="tile30"></div>
-        <div class="tile20"></div>
-        <div class="tile19"></div>
-        <div class="tile18"></div>
-        <div class="tile17"></div>
-        <div class="tile16"></div>
-        <div class="tile15"></div>
-        <div class="tile14"></div>
-        <div class="tile13"></div>
-        <div class="tile12"></div>
-        <div class="tile11"></div>
-        <div class="tile1"></div>
-        <div class="tile2"></div>
-        <div class="tile3"></div>
-        <div class="tile4"></div>
-        <div class="tile5"></div>
-        <div class="tile6"></div>
-        <div class="tile7"></div>
-        <div class="tile8"></div>
-        <div class="tile9"></div>
-        <div class="tile10"></i></div>
+        <div class="board">
+            <div class="tile100"></div>
+            <div class="tile99"></div>
+            <div class="tile98"></div>
+            <div class="tile97"></div>
+            <div class="tile96"></div>
+            <div class="tile95"></div>
+            <div class="tile94"></div>
+            <div class="tile93"></div>
+            <div class="tile92"></div>
+            <div class="tile91"></div>
+            <div class="tile81"></div>
+            <div class="tile82"></div>
+            <div class="tile83"></div>
+            <div class="tile84"></div>
+            <div class="tile85"></div>
+            <div class="tile86"></div>
+            <div class="tile87"></div>
+            <div class="tile88"></div>
+            <div class="tile89"></div>
+            <div class="tile90"></div>
+            <div class="tile80"></div>
+            <div class="tile79"></div>
+            <div class="tile78"></div>
+            <div class="tile77"></div>
+            <div class="tile76"></div>
+            <div class="tile75"></div>
+            <div class="tile74"></div>
+            <div class="tile73"></div>
+            <div class="tile72"></div>
+            <div class="tile71"></div>
+            <div class="tile61"></div>
+            <div class="tile62"></div>
+            <div class="tile63"></div>
+            <div class="tile64"></div>
+            <div class="tile65"></div>
+            <div class="tile66"></div>
+            <div class="tile67"></div>
+            <div class="tile68"></div>
+            <div class="tile69"></div>
+            <div class="tile70"></div>
+            <div class="tile60"></div>
+            <div class="tile59"></div>
+            <div class="tile58"></div>
+            <div class="tile57"></div>
+            <div class="tile56"></div>
+            <div class="tile55"></div>
+            <div class="tile54"></div>
+            <div class="tile53"></div>
+            <div class="tile52"></div>
+            <div class="tile51"></div>
+            <div class="tile41"></div>
+            <div class="tile42"></div>
+            <div class="tile43"></div>
+            <div class="tile44"></div>
+            <div class="tile45"></div>
+            <div class="tile46"></div>
+            <div class="tile47"></div>
+            <div class="tile48"></div>
+            <div class="tile49"></div>
+            <div class="tile50"></div>
+            <div class="tile40"></div>
+            <div class="tile39"></div>
+            <div class="tile38"></div>
+            <div class="tile37"></div>
+            <div class="tile36"></div>
+            <div class="tile35"></div>
+            <div class="tile34"></div>
+            <div class="tile33"></div>
+            <div class="tile32"></div>
+            <div class="tile31"></div>
+            <div class="tile21"></div>
+            <div class="tile22"></div>
+            <div class="tile23"></div>
+            <div class="tile24"></div>
+            <div class="tile25"></div>
+            <div class="tile26"></div>
+            <div class="tile27"></div>
+            <div class="tile28"></div>
+            <div class="tile29"></div>
+            <div class="tile30"></div>
+            <div class="tile20"></div>
+            <div class="tile19"></div>
+            <div class="tile18"></div>
+            <div class="tile17"></div>
+            <div class="tile16"></div>
+            <div class="tile15"></div>
+            <div class="tile14"></div>
+            <div class="tile13"></div>
+            <div class="tile12"></div>
+            <div class="tile11"></div>
+            <div class="tile1"></div>
+            <div class="tile2"></div>
+            <div class="tile3"></div>
+            <div class="tile4"></div>
+            <div class="tile5"></div>
+            <div class="tile6"></div>
+            <div class="tile7"></div>
+            <div class="tile8"></div>
+            <div class="tile9"></div>
+            <div class="tile10"></i></div>
+        </div>
+        <div class="details">
+            <img src="/snakesAndLadder/imgs/dice-fire.png" id="dice" width="200px" alt="" srcset="">
+            <h2></h2>
+            <h2></h2>
+            <h3 id="turn"></h3>
+            <button class="btn" type="button" onclick="roll()">roll</button>
+        </div>
+        
     </div>
-    <div class="details">
-        <img src="/snakesAndLadder/dice-fire.png" id="dice" width="200px" alt="" srcset="">
-        <h2></h2>
-        <h2></h2>
-        <h3 id="turn"></h3>
-        <button class="btn" type="button" onclick="roll()">roll</button>
-    </div>
+    <div class="history hide">
+        <h2>Game History</h2>
+        <ul>
+        </ul>
     </div>
     <div class="winner hide">
         <img src="https://i.gifer.com/6ob.gif" alt="">
         <h2 id="winnerResult"></h2>
+        <button class="btn" id="action">Download result(CSV)</button>
     </div>
 <!-- script -->
     <script>
@@ -203,15 +223,19 @@
                         'color':'',
                         'moves':[]
                     }
-        let player2={   'name':'player1',
+        let player2={   'name':'player2',
                         'color':'',
                         'moves':[]}
+        let data=[]
 
-        let snakes={27:12,40:37,43:25,54:23,66:21,76:18,89:36,99:58}
+        let snakes={27:22,40:37,43:25,54:23,66:21,76:18,89:36,99:58}
         let ladders={4:21,13:33,33:16,42:21,50:19,62:19,74:18}
         let counter1=1
         let counter2=1
         let playerFlag='player1'
+
+        const btn = document.getElementById('action');
+        btn.addEventListener('click', get)
         
         function setInfo(){
             if(document.getElementById('player1Name').value && document.getElementById('player2Name').value){
@@ -221,13 +245,14 @@
             player1.color=document.getElementById('player1Color').value
             player2.color=document.getElementById('player2Color').value
             document.getElementsByClassName('container')[0].classList.toggle('hide')
+            document.getElementsByClassName('history')[0].classList.toggle('hide')
             document.getElementsByClassName('setup')[0].classList.toggle('hide')
             document.getElementsByTagName('h2')[0].innerHTML=`player1=${player1.name} <i class="fa-solid fa-user" style="color: ${player1.color};">`
             document.getElementsByTagName('h2')[1].innerHTML=`player2=${player2.name} <i class="fa-solid fa-user" style="color: ${player2.color};">`         
         }
 
         function roll(){
-            console.log(playerFlag)
+            // console.log(playerFlag)
             let rollingMusic=new Audio('music/roll.wav')
             rollingMusic.play()
             let myInterval=setInterval(function(){
@@ -245,16 +270,22 @@
         function execution(){
             if(playerFlag=='player1'){
                 let diceValue=Math.ceil(Math.random()*6)
-                console.log('dice:'+diceValue)
+                // console.log('dice:'+diceValue)
                 document.getElementById('dice').setAttribute('src',`imgs/${diceValue}.png`)
                 if (counter1+diceValue > 100){
                     playerFlag='player2'
                 }
                 else{
-                    document.getElementsByClassName(`tile${counter1}`)[0].innerHTML='0'
+                    document.getElementsByClassName(`tile${counter1}`)[0].innerHTML=''
                     counter1+=diceValue
-                    counter1=isSnakeOrLadder(counter1)
-                    player1.moves.push(counter1)
+                    let temp={
+                        'dice':diceValue,
+                        'position':counter1,
+                        'snakeOrLadder':'-'
+                    }
+                    counter1=isSnakeOrLadder(counter1,temp)
+                    player1.moves.push(temp)
+                    // console.log(temp)
                     if(player2.position==counter1){
                         document.getElementsByClassName(`tile${counter2}`)[0].innerHTML=`<i class="fa-solid fa-user" style="color: ${player1.color};"> <i class="fa-solid fa-user" style="color: ${player2.color};">`
                     }
@@ -263,17 +294,18 @@
                     }
                     playerFlag='player2'
                     player1['position']=counter1
-                    console.log('location:'+player1.position)
                     if(diceValue==6){
                         playerFlag='player1'
                     }
                     document.getElementById('turn').innerText=`${playerFlag}'s Turn`
+                    addHistory(player1)
+                    console.log(data)
                 }
                 
             }
             else{
                 let diceValue=Math.ceil(Math.random()*6)
-                console.log('dice:'+diceValue)
+                // console.log('dice:'+diceValue)
                 document.getElementById('dice').setAttribute('src',`imgs/${diceValue}.png`)
                 if (counter2+diceValue > 100){
                     playerFlag='player1'
@@ -281,8 +313,14 @@
                 else{
                     document.getElementsByClassName(`tile${counter2}`)[0].innerHTML=''
                     counter2+=diceValue
-                    counter2=isSnakeOrLadder(counter2)
-                    player2.moves.push(counter2)
+                    let temp={
+                        'dice':diceValue,
+                        'position':counter2,
+                        'snakeOrLadder':'-'
+                    }
+                    counter2=isSnakeOrLadder(counter2,temp)
+                    player2.moves.push(temp)
+                    // console.log(temp)
                     if(player1.position==counter2){
                         document.getElementsByClassName(`tile${counter2}`)[0].innerHTML=`<i class="fa-solid fa-user" style="color: ${player1.color};"> <i class="fa-solid fa-user" style="color: ${player2.color};">`
                     }
@@ -291,11 +329,13 @@
                     }
                     playerFlag='player1'
                     player2['position']=counter2
-                    console.log('location:'+player2.position)
+                    // console.log('location:'+player2.position)
                     if(diceValue==6){
                         playerFlag='player2'
                     }
                     document.getElementById('turn').innerText=`${playerFlag}'s Turn`
+                    addHistory(player2)
+                    console.log(data)
                 }
             }
             if(player1.position == 100 || player2.position ==100){
@@ -312,22 +352,65 @@
                 document.getElementsByClassName('container')[0].classList.toggle('hide')
                 document.getElementsByClassName('winner')[0].classList.toggle('hide')
                 document.getElementById('winnerResult').innerHTML=`${winner} is the winner!!!!!!`
+                
             }
         }
 
-        function isSnakeOrLadder(positionValue){
+        function isSnakeOrLadder(positionValue,temp){
             if(Object.keys(snakes).includes(String(positionValue))){
                 positionValue=Number(positionValue)-snakes[positionValue]
+                temp.snakeOrLadder='snake'
                 let snakeSound=new Audio('music/snake.wav')
                 snakeSound.play()
             }
             else if(Object.keys(ladders).includes(String(positionValue))){
                 positionValue=Number(positionValue)+ladders[positionValue]
+                temp.snakeOrLadder='ladder'
                 let ladderSound=new Audio('music/ladder.wav')
                 ladderSound.play()
             }
             return positionValue
         }
+
+        function addHistory(player){
+            let historyElement=document.createElement('li')
+            let historyDivision=document.querySelector('.history ul')
+            historyElement.classList.add('card')
+            historyElement.innerText=`${player.name} \n Dice: ${player.moves[(player.moves.length)-1]['dice']},position: ${player.moves[(player.moves.length)-1]['position']}, Snake or Ladder: ${player.moves[(player.moves.length)-1]['snakeOrLadder']}`
+            historyDivision.appendChild(historyElement)
+            let temp={}
+            temp['Player']=player.name
+            temp['Dice']=player.moves[(player.moves.length)-1]['dice']
+            temp['CurrentPosition']=player.moves[(player.moves.length)-1]['position']
+            temp['SnakeOrLadder']=player.moves[(player.moves.length)-1]['snakeOrLadder']
+            data.push(temp)
+        }
+
+        async function get(){
+            const csvData=csvMaker()
+            download(csvData)
+        }
+        function csvMaker(){
+            let csvRows=[]
+
+            const headers = Object.keys(data[0])
+            csvRows.push(headers.join(','))
+            for(i of data){
+                const value=Object.values(i)
+                csvRows.push(value)
+            }
+            return csvRows.join('\n')
+        }
+        function download(someData){
+            const blob=new Blob([someData],{type:'text/csv'})
+            const url = window.URL.createObjectURL(blob)
+            const a = document.createElement('a')
+            a.setAttribute('href',url)
+            a.setAttribute('download','download.csv')
+            a.click()
+        }
+
+      
         
     </script>
     <script src="https://kit.fontawesome.com/d6f56984f1.js" crossorigin="anonymous"></script>
