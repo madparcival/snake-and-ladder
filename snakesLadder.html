@@ -20,6 +20,7 @@
             grid-template-columns: repeat(10,50px);
             grid-template-rows: repeat(10,50px);
             background-size: 500px 500px;
+            background-repeat: no-repeat;
             background-image: url('/imgs/board.jpg');
         }
         /* .container .board *{
@@ -71,16 +72,20 @@
         .history{
             position: absolute;
             top: 0;
+            background-color: rgba(255, 255, 255, 0.42);
             width: 350px;
             right: 10px;
             padding: 20px;
             overflow:scroll;
             height: 90%;
         }
-        @media (max-width:1000px) {
+        @media (max-width:1150px) {
             .container{
                 display: block;
                 justify-content: center;
+            }
+            .history{
+                display: none;
             }
         }
     </style>
